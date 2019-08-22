@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  mounted() {
+  mounted () {
     this.hammer = new Hammer(this.$el);
 
     this.hammer.on("panstart", event => {
@@ -34,13 +34,13 @@ export default {
     abortedTransition: false
   }),
   methods: {
-    onBeforeEnter(element) {
+    onBeforeEnter (element) {
       element.style.zIndex = this.abortedTransition ? 1 : 0;
     },
-    onBeforeLeave(element) {
+    onBeforeLeave (element) {
       element.style.zIndex = this.abortedTransition ? 0 : 1;
     },
-    onLeave(element, done) {
+    onLeave (element, done) {
       if (this.abortedTransition) {
         this.abortedTransition = false;
         done();
