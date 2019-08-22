@@ -34,6 +34,8 @@ https://jsfiddle.net/neutron63zf/86njmbqy/4/
   - なくても動作はする
   - 初期化が最初っから走るだけらしい
 - 問題はbefore leaveとかの部分
+- 現在でもvue/hammer連結部分をラップすることで使用可能
+  - だけど、vue-touchは開発停止、vue2-hammerは開発が実質ストップしてて正直あんまり使いたくない
 
 # commands
 
