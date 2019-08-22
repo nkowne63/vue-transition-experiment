@@ -16,8 +16,6 @@
 <script>
 export default {
   mounted() {
-    console.log("hammer", Hammer);
-
     this.hammer = new Hammer(this.$el);
 
     this.hammer.on("panstart", event => {
@@ -25,7 +23,9 @@ export default {
       event.preventDefault();
       this.panning = true;
       this.panningStartPosition = this.$el.getBoundingClientRect().left;
-      this.$router.push({ path: "/bar" }); // initiate transition process
+      if (this.$route.path !== "/bar") {
+        this.$router.push({ path: "/bar" }); // initiate transition process
+      }
     });
   },
   data: () => ({
@@ -77,7 +77,7 @@ export default {
               setTimeout(() => {
                 this.panning = false;
                 this.$router.back();
-                this.hammer.off("pan panend");
+                this.hammer.off("pan panend panstart");
                 done();
               }, 500);
             } else {
@@ -91,7 +91,12 @@ export default {
               // When done, reset everything for the next round
               setTimeout(() => {
                 this.panning = false;
-                this.hammer.off("pan panend");
+                this.hammer.off("pan panend panstart");
+                // Reset style after animation
+                element.css({
+                  transition: "",
+                  transform: ""
+                });
                 done(); // tell vue.js we're done animating
               }, transitionTime);
             }

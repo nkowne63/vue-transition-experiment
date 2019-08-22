@@ -26,10 +26,14 @@ vueのtranstionの実験です。vue-cliでenter連打で作ってます。
 ### 途中で止める
 
 これはさすがに厳しいんじゃなかろうか、と思ったけど、以下のfiddleでいけるみたい
+
 https://jsfiddle.net/neutron63zf/86njmbqy/4/
 
-だけど、厳しい制約がある。
 - keep-aliveによって過去のルートの要素を保持している
+  - これ自体は動作には必須ではないみたい
+  - なくても動作はする
+  - 初期化が最初っから走るだけらしい
+- 問題はbefore leaveとかの部分
 
 # commands
 
