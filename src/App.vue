@@ -1,16 +1,20 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <!-- enter-active-class="animated zoomIn"
+    leave-active-class="animated bounceOutRight"-->
+    <transition name="router-transition">
+      <router-view class="page" />
+    </transition>
   </div>
 </template>
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -24,6 +28,46 @@
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+}
+
+.page {
+  position: fixed;
+  right: 0;
+  left: 0;
+  width: inherit;
+  padding: 0 50px;
+}
+
+// カスタム定義部分
+.router-transition-enter-active {
+  animation: fadeIn 1s;
+  // animation-delay: 0.5s;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.router-transition-leave-active {
+  animation: fadeOut 1s;
+}
+
+@keyframes fadeOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+    opacity: 0;
   }
 }
 </style>
