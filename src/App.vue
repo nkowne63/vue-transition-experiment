@@ -39,9 +39,11 @@
   padding: 0 50px;
 }
 
+$duration: 3s;
+
 // カスタム定義部分
 .router-transition-enter-active {
-  animation: fadeIn 1s;
+  animation: fadeIn $duration;
   // animation-delay: 0.5s;
   opacity: 0;
 }
@@ -58,7 +60,7 @@
 }
 
 .router-transition-leave-active {
-  animation: fadeOut 1s;
+  animation: fadeOut $duration;
 }
 
 @keyframes fadeOut {
