@@ -1,5 +1,17 @@
 # v-transition-test
 
+## 概要
+
+vueのtranstionの実験です。vue-cliでenter連打で作ってます。
+
+## 目標
+
+より細かくするかもしれない
+
+- ページ遷移の際に次のページが見えるようにする
+
+# commands
+
 ## Project setup
 ```
 yarn install
